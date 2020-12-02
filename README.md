@@ -1,37 +1,16 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/BeliefBoy/OnlineDisk/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+此代码可以运行起来，但是需要HdfsConn.java中的defaultFS和HbaseConn中的quorum和rootdir。
 
-### Markdown
+修改完后
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+执行CreateTable建表
 
-```markdown
-Syntax highlighted code block
+然后即可运行程序
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+目前程序可以运行起来，但是并不能在hadoop中添加目录或上传文件，还有些问题没有调通，具体问题出现在
 
-1. Numbered
-2. List
+HdfsConn 中的 fileSystem = FileSystem.get(uri,configuration,"root"); 处，在这里无法正常获得FileSystem，暂不知什么原因（这一句在其它地方运行正常）。
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/BeliefBoy/OnlineDisk/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.

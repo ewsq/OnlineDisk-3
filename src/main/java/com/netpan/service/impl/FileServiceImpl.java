@@ -227,11 +227,11 @@ public class FileServiceImpl implements FileService{
 		}
 		return nodeList;
 	}
-	
+
 	/**
 	 * 下载文件
 	 * @param user
-	 * @param path
+	 * @param file
 	 * @param local
 	 * @return
 	 */
@@ -239,12 +239,13 @@ public class FileServiceImpl implements FileService{
 	public boolean downloadFile(User user, File file, String local) {
 		return fileDao.downloadFile(user, file, local);
 	}
-	
+
 	/**
 	 * 递归复制file表和user_file表的文件信息，复制文件或目录时使用
 	 * @param user
 	 * @param sourceFile
-	 * @param dstid
+	 * @param destid
+	 * @param destPath
 	 */
 	@Override
 	public void copyInfoRecursion(User user, File sourceFile, long destid, String destPath) {
@@ -282,11 +283,12 @@ public class FileServiceImpl implements FileService{
 			}
 		}
 	}
-	
+
 	/**
 	 * 复制或者移动hdfs中的文件，复制与移动文件或目录时使用
-	 * @param sourcePath
-	 * @param destPath
+	 * @param user
+	 * @param sourceFile
+	 * @param destFile
 	 * @param flag
 	 */
 	@Override

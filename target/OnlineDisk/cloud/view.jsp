@@ -22,42 +22,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/flexpaper/js/flexpaper_handlers_debug.js"></script>
 </head>
 <body>
-	<div style="position:absolute;left:10px;top:10px;">
-	<input type="hidden" id="local" value="${local}"/>
-	<a id="viewerPlaceHolder" style="width:920px;height:620px;display:block"></a>
-	<script type="text/javascript">
-	var local = $("#local").val();
-	$(document).ready(function(){
-		$('#viewerPlaceHolder').FlexPaperViewer({ 
-			config : {
-				SwfFile : local,
-				//IMGFiles : "activiti.pdf_{page}.png",
-				//JSONFile : "activiti.pdf.js",
-				//PDFFile : "activiti.pdf",
-				Scale : 1.5, 
-				ZoomTransition : 'easeOut',
-				ZoomTime : 0.5, 
-				ZoomInterval : 0.2,
-				FitPageOnLoad : false,
-				FitWidthOnLoad : false, 
-				FullScreenAsMaxWindow : false,
-				ProgressiveLoading : true,
-				MinZoomSize : 0.2,
-				MaxZoomSize : 5,
-				SearchMatchAll : false,
-				InitViewMode : 'Portrait',
-				RenderingOrder : 'flash,html',
-				MixedMode : true,
-				ViewModeToolsVisible : true,
-				ZoomToolsVisible : true,
-				NavToolsVisible : true,
-				CursorToolsVisible : true,
-				SearchToolsVisible : true,
-				localeChain : "zh_CN"
-			}
+	<div style="position:absolute;left:20px;top:20px;">
+		<input type="hidden" id="local" value="${local}"/>
+		<a id="viewerPlaceHolder" style="width:910px;height:560px;display:block"></a>
+		<script type="text/javascript">
+		var local = $("#local").val();
+		$(document).ready(function(){
+			$('#viewerPlaceHolder').FlexPaperViewer({ 
+				config : {
+					SwfFile : local,
+					//IMGFiles : "activiti.pdf_{page}.png",
+					//JSONFile : "activiti.pdf.js",
+					//PDFFile : "activiti.pdf",
+					Scale : 1.5, 
+					ZoomTransition : 'easeOut',
+					ZoomTime : 0.5, 
+					ZoomInterval : 0.2,
+					FitPageOnLoad : false,
+					FitWidthOnLoad : false, 
+					FullScreenAsMaxWindow : false,
+					ProgressiveLoading : true,
+					MinZoomSize : 0.2,
+					MaxZoomSize : 5,
+					SearchMatchAll : false,
+					InitViewMode : 'Portrait',
+					RenderingOrder : 'flash,html',
+					MixedMode : true,
+					ViewModeToolsVisible : true,
+					ZoomToolsVisible : true,
+					NavToolsVisible : true,
+					CursorToolsVisible : true,
+					SearchToolsVisible : true,
+					localeChain : "zh_CN"
+				}
+			});
 		});
-	});
-	</script>
+		</script>
 	</div>
 </body>
 </html>

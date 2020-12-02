@@ -279,6 +279,7 @@
 	        $("#remberMe").attr("checked", true);
 	        $("#username").val($.cookie("username"));
 	        $("#password").val($.cookie("password"));
+	        checkFlg = true;
 	    }
 		$("#regUser").click(function(){
 			$("#regResult").html("正在注册中...");

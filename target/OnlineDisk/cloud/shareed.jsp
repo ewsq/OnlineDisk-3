@@ -41,15 +41,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						}
 						function downName(originalName, path, name){
 						   layer.load(2);
-						   $.post('${pageContext.request.contextPath}/downloadFile.do', { originalName:originalName, path:path, name:name }, function(res) {
-							   layer.closeAll('loading');
-							   if (res.errres) {
-									layer.msg('操作成功！', 2, -1);
-							   }else{
-									layer.msg(res.errmsg, 2, -1);
-							   }
-							}, 'json');
-					   }
+						   $.ajax({
+								type:"POST",
+								url:"${pageContext.request.contextPath}/downloadFile.do",
+								data:{ originalName:originalName, path:path, name:name },
+								dataType:"json",
+								async: false,
+								success:function(res){
+									layer.closeAll('loading');
+									if (res.errres) {
+										window.open('${pageContext.request.contextPath}/' + res.url);
+								    }else{
+										layer.msg(res.errmsg, 2, -1);
+								    }
+								}
+						   });
+					    }
+						function viewName(originalName, path, name){
+						    $.layer({
+							    type: 2,
+							    border: [0],
+							    title: false,
+							    closeBtn: [0, true],
+							    iframe: {src : '${pageContext.request.contextPath}/viewFile.do?originalName=' + originalName + '&path=' + path + '&name=' + name},
+							    area: ['950px', '600px']
+							});
+					    }
 					</script>
 					<div class="page-header">
 						<h1>${url}</h1>
@@ -91,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<button class="btn btn-xs btn-info" onclick="downName('${entry.name}','${entry.path}','${entry.shareUserName}')" title="下载">
 														<i class="icon-cloud-download bigger-120"></i>
 													</button>
-													<button class="btn btn-xs btn-info" onclick="viewName('${entry.path}')" title="浏览">
+													<button class="btn btn-xs btn-info" onclick="viewName('${entry.name}','${entry.path}','${entry.shareUserName}')" title="浏览">
 														<i class="icon-eye-open bigger-120"></i>
 													</button>
 												</c:if>

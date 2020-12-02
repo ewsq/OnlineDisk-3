@@ -191,7 +191,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								    title: false,
 								    closeBtn: [0, true],
 								    iframe: {src : '${pageContext.request.contextPath}/viewFile.do?originalName=' + originalName + '&path=' + path + '&name=' + name},
-								    area: ['950px', '650px']
+								    area: ['950px', '600px']
 								});
 						   }
 						   function downName(originalName, path, name){
@@ -205,7 +205,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									success:function(res){
 										layer.closeAll('loading');
 										if (res.errres) {
-											layer.msg('操作成功！', 2, -1);
+											window.open('${pageContext.request.contextPath}/' + res.url);
 									    }else{
 											layer.msg(res.errmsg, 2, -1);
 									    }
@@ -247,7 +247,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									    border: [0],
 									    title: '复制到',
 									    closeBtn: [0, true],
-									    iframe: {src : '${pageContext.request.contextPath}/showTree.do?ids='+ids+'&flag='+flag+'&parentid='+parentid},
+									    iframe: {src : '${pageContext.request.contextPath}/showTree.do?ids='+ids.join(',')+'&flag='+flag+'&parentid='+parentid},
 									    area: ['200px', '300px']
 									});
 							   }else{
@@ -328,7 +328,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<i class="icon-edit bigger-120"></i>
 												</button>
 												<c:if test="${entry.viewflag=='Y'}">
-												<button class="btn btn-xs btn-info" onclick="viewName('${entry.path}')" title="浏览">
+												<button class="btn btn-xs btn-info" onclick="viewName('${entry.originalName}','${entry.path}', '${currentUser.name }')" title="浏览">
 													<i class="icon-eye-open bigger-120"></i>
 												</button>
 												</c:if>

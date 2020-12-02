@@ -133,11 +133,12 @@ public class HdfsDao {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * 复制或者移动文件或者目录
-	 * @param sourcePath
-	 * @param destPath
+	 * @param user
+	 * @param sourceFile
+	 * @param destFile
 	 * @param flag
 	 */
 	public void copyOrMove(User user, File sourceFile, File destFile, boolean flag) {

@@ -11,7 +11,8 @@ $(function(){
 		fileTypeExts:'',
 		fileSizeLimit:'15MB',
 		swf:'plug-in/uploadify/uploadify.swf',	
-		uploader:'nullonUploadStart : function(file) { } ,
+		uploader:'null',
+		onUploadStart : function(file) { } ,
 		onQueueComplete : function(queueData) { 
 			var win = frameElement.api.opener;
 			win.reloadTable();
@@ -30,16 +31,31 @@ $(function(){
 		},
 		onSelectError : function(file, errorCode, errorMsg){
 			switch(errorCode) {
-			case -100:tip("上传的文件数量已经超出系统限制的"+$('#null').uploadify('settings','queueSizeLimit')+"个文件！");
-			break;case -110:tip("文件 ["+file.name+"] 大小超出系统限制的"+$('#null').uploadify('settings','fileSizeLimit')+"大小！");
-			break;case -120:tip("文件 ["+file.name+"] 大小异常！");
-			break;case -130:tip("文件 ["+file.name+"] 类型不正确！");
-			break;
+				case -100:
+					tip("上传的文件数量已经超出系统限制的"+$('#null').uploadify('settings','queueSizeLimit')+"个文件！");
+					break;
+				case -110:
+					tip("文件 ["+file.name+"] 大小超出系统限制的"+$('#null').uploadify('settings','fileSizeLimit')+"大小！");
+					break;
+				case -120:
+					tip("文件 ["+file.name+"] 大小异常！");
+					break;
+				case -130:
+					tip("文件 ["+file.name+"] 类型不正确！");
+					break;
+			}
 		},
-		onUploadProgress : function(file, bytesUploaded, bytesTotal, totalBytesUploaded, totalBytesTotal) { }});});function upload() {	$('#null').uploadify('upload', '*');		return flag;}function cancel() {$('#null').uploadify('cancel', '*');}</script>
+		onUploadProgress : function(file, bytesUploaded, bytesTotal, totalBytesUploaded, totalBytesTotal) { }
+	});
+});
+
+function upload() {	
+	$('#null').uploadify('upload', '*');		
+	return flag;
 }
-
-
+function cancel() {
+	$('#null').uploadify('cancel', '*');
+}
 
 function getUser() {
 	var name = $.trim($("#username").val());

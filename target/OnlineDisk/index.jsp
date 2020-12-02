@@ -6,7 +6,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <!DOCTYPE HTML>
 <html>
-  <head><base href="<%=basePath%>">
+  <head>
+  	<base href="<%=basePath%>">
     <title>云盘首页</title>
     <jsp:include page="/public/pub.jsp"></jsp:include>
 	</head>

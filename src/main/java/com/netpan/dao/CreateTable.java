@@ -51,10 +51,10 @@ public class CreateTable extends HbaseDao{
 		String[] share = {"content"};
 		String[] shareed = {"shareid"};
 		
-		/*createTable(Constants.TABLE_GID, gid);
+		createTable(Constants.TABLE_GID, gid);
 		createTable(Constants.TABLE_USERId, user_id);
 		createTable(Constants.TABLE_IDUSER, id_user);
-		createTable(Constants.TABLE_EMAILUSER, email_user);*/
+		createTable(Constants.TABLE_EMAILUSER, email_user);
 		createTable(Constants.TABLE_FILE, file);
 		createTable(Constants.TABLE_USERFILE, user_file);
 		createTable(Constants.TABLE_FOLLOW, follow);
