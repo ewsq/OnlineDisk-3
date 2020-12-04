@@ -1,6 +1,6 @@
 
 
-此代码可以运行起来，但是需要HdfsConn.java中的defaultFS和HbaseConn中的quorum和rootdir。
+此代码可以运行起来，但是需要修改HdfsConn.java中的defaultFS和HbaseConn中的quorum和rootdir。
 
 修改完后
 

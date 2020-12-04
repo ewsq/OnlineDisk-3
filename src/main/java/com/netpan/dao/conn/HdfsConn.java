@@ -19,20 +19,11 @@ public class HdfsConn {
 
 	private HdfsConn() {
 		try {
-			//System.setProperty("hadoop.home.dir", "D:\\hadoop-3.3.0");
-			URI uri = new URI(defaultFS.trim());
 			configuration = new Configuration();
-
-			//JobConf conf = new JobConf(HdfsConn.class);
-			//conf.setJobName("HdfsConn");
-
-			//在这一步出错，暂没有调通，但这段代码在其它地方正常使用，在此处会进入反射错误，并且不直接报错
-			fileSystem = FileSystem.get(uri,configuration,"root");
-
+			configuration.set("fs.defaultFS",defaultFS.trim());
+			fileSystem = FileSystem.get(configuration);
 			System.out.println("获得 FileSystem ");
 		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
